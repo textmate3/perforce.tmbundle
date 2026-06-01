@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby18 -w
+#!/usr/bin/env ruby -w
 require 'pathname'
 require ENV['TM_SUPPORT_PATH'] + "/lib/progress"
 
