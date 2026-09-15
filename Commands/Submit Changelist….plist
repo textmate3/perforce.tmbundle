@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/python2.7
+	<string>#!/usr/bin/env python3
 
 def add_tm_support_to_path():
 	import os, sys

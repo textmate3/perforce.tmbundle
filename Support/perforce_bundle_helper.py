@@ -20,8 +20,8 @@ def connect_to_p4():
 
 def get_textmate_file_list():
 	# shlex.split parses the bash argument string into a list
-	return shlex.split(os.environ['TM_SELECTED_FILES']) if os.environ.has_key('TM_SELECTED_FILES') \
-		else [os.environ['TM_FILEPATH']] if os.environ.has_key('TM_FILEPATH') \
+	return shlex.split(os.environ['TM_SELECTED_FILES']) if 'TM_SELECTED_FILES' in os.environ \
+		else [os.environ['TM_FILEPATH']] if 'TM_FILEPATH' in os.environ \
 		else []
 
 
@@ -160,7 +160,7 @@ def run_p4_command(command, file_list = [], fallback_command = None, fallback_si
 		'mate -w' spawns TextMate and tells it to wait until you close
 		the window to send its contents to stdin.
 		'''
-		if not os.environ.has_key('EDITOR'):
+		if 'EDITOR' not in os.environ:
 			os.environ['EDITOR'] = os.environ['TM_SUPPORT_PATH'] + '/bin/mate -w'
 		
 		# If someone passes arguments in along with command, parse them correctly
